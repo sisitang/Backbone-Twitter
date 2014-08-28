@@ -29,16 +29,13 @@ if( isset($_GET["count"]) && (int)trim($_GET["count"]) > 0){
 
 //Get connection
 function getConnectionWithAccessToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret) {
-  $connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
-  return $connection;
+	$connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
+	return $connection;
 }
 
 //Get tweets 
 $connection = getConnectionWithAccessToken($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
-$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=" . $query 
-																			   . "&count=" 
-																			   .$notweets
-																			   . "&include_entities=true&callback=?");
+$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=" . $query . "&count=" . $notweets . "&include_entities=true&callback=?");
  
 //Return JSON array  
 echo json_encode($tweets);
