@@ -20,7 +20,7 @@
 	//Create the model for a tweet	
 	var Tweet = Backbone.Model.extend();
 
-    //Create the collection for a set of tweets
+	//Create the collection for a set of tweets
 	var Tweets = Backbone.Collection.extend({
 		model: Tweet,
 		//Set inital URL
