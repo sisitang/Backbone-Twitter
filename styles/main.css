@@ -1,0 +1,233 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* A simple Twitter search feed
+   Author: Sisi Tang (stang.htpwebdesign.ca)
+*****************************************************************/
+
+
+/* Global reset
+   http://meyerweb.com/eric/tools/css/reset/ 
+*****************************************************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Extended base styles 
+*****************************************************************/
+
+a,
+a:active,
+a:visited {
+	outline: none;
+	text-decoration:none;
+	color: #707070;
+}
+body{
+	background: #9added;
+	font-family: 'Oxygen', sans-serif;
+	color:#292f33;
+}
+.container{
+	width:1000px;
+	margin:auto;
+	background:#eaeaea;
+	border:10px solid #fcf0b2;
+	position:relative;
+	min-height:800px;
+}
+.title{
+	font-family:"Comic Sans MS", cursive;
+	font-size:40px;
+	margin:50px;
+	width:100%;
+	text-align:left;
+	color:#36CAED;
+}
+.loading{
+	position:absolute;
+	width:80%;
+	height:300px;
+	top:200px;
+	left:10%;
+	margin:auto;
+	background:#36CAED;
+	border-radius:20px;
+	text-align:center;
+	line-height:300px;
+	font-size:40px;
+	font-family:"Comic Sans MS", cursive;
+	color:#ffffff;
+	margin-top:30px;
+}
+.tag{
+	position:fixed;
+	top:40%;
+	right:0;
+	width:120px;
+	height:50px;
+	background:#36CAED;
+	cursor:pointer;
+	border-bottom-left-radius:10px;
+	border-top-left-radius:10px;
+	text-align:center;
+	line-height:50px;
+	display:none;
+	color:#ffffff !important;
+}
+/* Search area
+*****************************************************************/
+.search_area{
+	margin:auto;
+	width:68%;
+	position:relative;
+	font-family: 'Oxygen', sans-serif;
+}
+.search_area input[type=text]{
+	width:350px;
+	height:50px;
+	border-radius:10px;
+	border:none;
+	padding-left:10px;
+	padding-right:65px;
+	color:#999;
+	font-size:25px;
+	font-family: 'Oxygen', sans-serif;
+}
+.search_area input[type=button]{
+	position:absolute;
+	background:none;
+	background-image:url(../images/search.png);
+	width:60px;
+	height:60px;
+	top:-5px;
+	left:290px;
+	cursor:pointer;
+	border:none;
+	outline:none;
+	font-family: 'Oxygen', sans-serif;
+}
+.search_area button,#res_num{
+	width:90px;
+	height:50px;
+	border:none;
+	background:#9added;
+	color:#ffffff;
+	border-radius:10px;
+	font-size:18px;
+	margin-left:20px;
+	cursor:pointer;
+	outline:none;	
+	font-family: 'Oxygen', sans-serif;
+	text-align:center;
+}
+.search_area button:hover{
+	opacity:0.7 !important;
+}
+
+.note{
+	display:none;
+	position:absolute;
+	top:100px;
+	right:295px;
+	width:150px;
+	background: #fcf0b2;
+	padding:3px;
+	border-radius:5px;
+	text-align:center;
+	color:#86c9d9;
+}
+#res_num{
+	margin-left:0;
+	border-radius:0;
+	height:30px;
+	width:50px;
+	background:#fcf0b2;
+	color:#999;
+	border-style:none;
+}
+.label{
+	padding:5px;
+}
+
+/* Tweets area
+*****************************************************************/
+
+#tweetContainer{
+	margin:20px;
+}
+
+.tweet{
+	margin-top:20px;
+	margin-bottom:10px;
+	padding-bottom:10px;
+	border-bottom:2px solid #9added;
+}
+.tweet:first-child{
+	border-top:2px solid #9added;
+	margin-top:30px;
+	padding-top:20px;
+
+}
+.profile_img, .user{
+	display:inline-block;
+	vertical-align:top;
+	margin-right:10px;
+}
+.user div{
+	height: 25px;
+	line-height:25px;
+}
+.tweet_text{
+	padding: 20px 0px 5px 0px;
+	font-size:18px;
+}
+.created_at{
+	font:15px;
+	color:#999;
+}
+.original_id{
+	margin-bottom:20px;
+}
+

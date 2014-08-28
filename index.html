@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Simple Twitter search feed</title>
+<meta name="description" content="A simple Twitter search feed" />
+<meta name="author" content="Sisi Tang" />
+<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+<link href="styles/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="styles/main.css" rel='stylesheet' type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="scripts/underscore-min.js"></script>
+<script src="scripts/backbone-min.js"></script>
+</head>
+<body id="body">
+
+<!--Main view-->
+<div class="container">
+    <div class="title"><i class="icon-twitter"></i> Twitter Search Feed</div>
+    <a href="#body" class="tag">Back to top</a>
+    <div class="note">Automatically refresh per 20s</div>
+    <div class="loading">Welcome to Twitter search feed :)</div>
+    <div id="tweetContainer"></div>
+</div>
+
+<!-------- Template ------->
+<script type="text/template" id="tweettemplate">
+<!-- Search area -->
+<div class="search_area">
+	<input type="text" id="search_input" value="<%=keywords%>"/>
+    <input type="button" id="search_button" value="" />
+    <button class="refresh">Refresh</button>
+	<label class="label">Results</label>
+	<select id="res_num">
+		<% _.each([1, 2, 3], function(i) { %>
+  		      <option value='<%= i*10 %>' <% if(i*10 == res_num){ print('selected'); } %>><%= i*10 %></option>
+		<%});%>
+    </select>
+</div>
+
+<!-- List of tweets -->
+<% if (typeof(tweets) != "undefined" && tweets.length>0) { %>
+<div id="content">
+	<ul id="tweetList">
+	<% _.each(tweets, function(tweet) { %>
+		<li class="tweet">
+			<span>
+				<div class="tail">
+					<div class="profile_img"><%=tweet.user.profile_image_url%></div>
+					<div class="user">
+						<div><%= tweet.user.name %></div>
+						<div><%= tweet.user.screen_name %></div>
+					</div>
+					<div class="tweet_text">Text:  <%= tweet.text %></div>                  
+					<div class="original_id"><%=tweet.id_str%> <%=tweet.retweet_count%></div>
+					<div class="created_at"><%= tweet.created_at %></div>
+				</div>
+			</span>
+		</li> 
+	<% }); %>
+    </ul>
+</div>
+<% } else if(tweets.length == 0){%>
+<div class="loading">Sorry, no search feed!</div>
+<% } else {%>
+<div class="loading">Sorry, it seems Internet is down.. try again!</div>	
+<%}%>	
+</script>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
