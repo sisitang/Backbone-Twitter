@@ -27,14 +27,14 @@
 <!-- Search area -->
 <div class="search_area">
 	<input type="text" id="search_input" value="<%=keywords%>"/>
-    <input type="button" id="search_button" value="" />
-    <button class="refresh">Refresh</button>
+	<input type="button" id="search_button" value="" />
+	<button class="refresh">Refresh</button>
 	<label class="label">Results</label>
 	<select id="res_num">
 		<% _.each([1, 2, 3], function(i) { %>
-  		      <option value='<%= i*10 %>' <% if(i*10 == res_num){ print('selected'); } %>><%= i*10 %></option>
+			<option value='<%= i*10 %>' <% if(i*10 == res_num){ print('selected'); } %>><%= i*10 %></option>
 		<%});%>
-    </select>
+	</select>
 </div>
 
 <!-- List of tweets -->
@@ -57,7 +57,7 @@
 			</span>
 		</li> 
 	<% }); %>
-    </ul>
+	</ul>
 </div>
 <% } else if(tweets.length == 0){%>
 <div class="loading">Sorry, no search feed!</div>
