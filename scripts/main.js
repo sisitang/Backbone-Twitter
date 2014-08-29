@@ -5,14 +5,17 @@
 	var keywords="", valid=false; 
 	
 	//Prompt the user to enter a search string to initialize the twitter feed
-	while(!valid) {
-		keywords = prompt("Please enter keywords to start searching on Twitter :)" , "");
-		valid = (valReq(keywords) && valString(keywords));
+	try {
+		while(!valid) {
+			keywords = prompt("Please enter keywords to start searching on Twitter :)" , "");
+			valid = (valReq(keywords) && valString(keywords));
+		}
 	}
-	//In case, set a initial keyword
-	if (!valid){
+	catch(err) {
+		//In case, set a initial keyword
 		keywords = "vancouver";
-	}	
+	} 
+
 	
 	//Show the "Loading" sign until get tweets
 	$(".loading").html("Loading ... ...");
