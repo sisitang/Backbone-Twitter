@@ -205,12 +205,11 @@ function linkify(inputText) {
 
     //URLs starting with "@" .
     replacePattern3 = /\B@([\w-]+)/gm;
-    replacedText = replacedText.replace(replacePattern3, '<a href="http://twitter.com/$1">@$1</a>');
+    replacedText = replacedText.replace(replacePattern3, '<a href="http://twitter.com/$1" target="_blank">@$1</a>');
 
     //URLs starting with "#" .
     replacePattern4 = /\B#([\w-]+)/gm;
-    replacedText = replacedText.replace(replacePattern4, '<a href="http://search.twitter.com/search?q=$1">#$1</a>');
- 
+    replacedText = replacedText.replace(replacePattern4, '<a href="https://twitter.com/hashtag/$1?src=hash" target="_blank">#$1</a>');
     return replacedText;
 }
 
